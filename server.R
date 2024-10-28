@@ -1,8 +1,8 @@
-### maizeHM
+### sorghumHM
 
 library(shiny)
 
-data <- read.delim("/home/liu3zhen/shiny/maizeHM/data/B73v5.genelist", header=F)
+data <- read.delim("data/B73v5.genelist", header=F)
 colnames(data) <- c("Gene")
 
 ### function to output html
@@ -55,8 +55,8 @@ shinyServer(function(input, output, session) {
 	#output$waithtml <- renderUI({getPage("/home/liu3zhen/shiny/maizeHM/data/job_waiting.html")}) # waiting message
 
 	# perform analysis
-	system(paste("sh /home/liu3zhen/shiny/maizeHM/scripts/1m_B73v5_homomine.sh", input$gene, input$genome)) # run homomin
-	htmlout <- paste0("/mnt/data1/home/liu3zhen/shiny/maizeHM/output/", input$genome, "/", input$gene, "/", input$gene, ".homomine.report.html")
+	system(paste("sh scripts/1m_B73v5_homomine.sh", input$gene, input$genome)) # run homomin
+	htmlout <- paste0("output/", input$genome, "/", input$gene, "/", input$gene, ".homomine.report.html")
     
 	#if (file.exists(htmlout)) {
     # output$runningMessage <- renderUI(NULL)
