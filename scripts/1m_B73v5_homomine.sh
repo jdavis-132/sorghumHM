@@ -4,7 +4,7 @@ qrygene=$1
 genome=$2
 
 # output directory
-outdir=/mnt/data1/home/liu3zhen/shiny/maizeHM/output/$genome
+outdir=output/$genome
 
 if [ ! -d $outdir ]; then
 	mkdir $outdir
