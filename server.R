@@ -2,7 +2,7 @@
 
 library(shiny)
 
-data <- read.delim("data/B73v5.genelist", header=F)
+data <- read.delim("data/BTX623.genelist", header=F)
 colnames(data) <- c("Gene")
 
 ### function to output html
@@ -12,7 +12,7 @@ getPage <- function(htmlfile) {
 
 shinyServer(function(input, output, session) {
   # notes:
-  output$introNote <- renderText("The module homomine from Package Homotools is implemented to search a B73 gene in another maize genome. The service is provided by Liu lab at Kansas State University. Contact Sanzhen Liu(liu3zhen@ksu.edu) if you have a question.")
+  output$introNote <- renderText("The module homomine from Package Homotools is implemented to search a BTX623 gene in another sorghum genome. The service is provided by the Schnable lab at the University of Nebraska-Lincoln and the Liu lab at Kansas State University. Contact Jensina Davis (jdavis132@huskers.unl.edu) if you have a question.")
   
   # Display error message
   output$errorMessage <- renderUI({
@@ -20,7 +20,7 @@ shinyServer(function(input, output, session) {
     if (gene_DB_count>0) {
       #valid_geneid <- TRUE
       return(NULL)  # No error, return NULL
-    } else if (input$gene == "Zm00001eb") {
+    } else if (input$gene == "Sobic.") {
 	  return(tags$div(
 	    class = "alert alert-info",
 	    "Please enter a valid gene ID in the left textbox"
@@ -28,7 +28,7 @@ shinyServer(function(input, output, session) {
 	} else {
 	  return(tags$div(
         class = "alert alert-danger",
-        paste(input$gene, "is not in the B73v5 gene list.")
+        paste(input$gene, "is not in the BTX623 gene list.")
 	  ))
     }
   })
@@ -55,8 +55,8 @@ shinyServer(function(input, output, session) {
 	#output$waithtml <- renderUI({getPage("/home/liu3zhen/shiny/maizeHM/data/job_waiting.html")}) # waiting message
 
 	# perform analysis
-	system(paste("sh scripts/1m_B73v5_homomine.sh", input$gene, input$genome)) # run homomin
-	htmlout <- paste0("output/", input$genome, "/", input$gene, "/", input$gene, ".homomine.report.html")
+	# system(paste("sh scripts/1m_B73v5_homomine.sh", input$gene, input$genome)) # run homomin
+	htmlout <- paste0("data/html-results/", input$genome, "/", input$gene, ".homomine.report.html")
     
 	#if (file.exists(htmlout)) {
     # output$runningMessage <- renderUI(NULL)

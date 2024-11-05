@@ -18,7 +18,7 @@ shinyUI(fluidPage(
   #useShinyjs(),  # Set up shinyjs
 
   # Application title
-  titlePanel("MaizeHM - search a B73 gene in another maize genome"),
+  titlePanel("SorghumHM - search a BTX623 gene in another sorghum genome"),
 
   textOutput('introNote'),
 
@@ -27,8 +27,8 @@ shinyUI(fluidPage(
 	headerPanel(''),
 
     sidebarPanel(
-	  textInput("gene", "B73v5 gene (e.g., Zm00001eb195850): ", value="Zm00001eb"),
-	  selectInput('genome', 'Target genome:', genomes, selected="A188v1"),
+	  textInput("gene", "BTX623 gene (e.g., Sobic.Sobic.001G000100): ", value="Sobic."),
+	  selectInput('genome', 'Target genome:', genomes, selected="BTX642"),
 	  actionButton("go", "GO"),
 	  width=2
 	),
