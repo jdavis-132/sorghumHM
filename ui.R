@@ -27,7 +27,7 @@ shinyUI(fluidPage(
 	headerPanel(''),
 
     sidebarPanel(
-	  textInput("gene", "BTX623 gene (e.g., Sobic.Sobic.001G000100): ", value="Sobic."),
+	  textInput("gene", "BTX623 gene (e.g., Sobic.001G000100): ", value="Sobic."),
 	  selectInput('genome', 'Target genome:', genomes, selected="BTX642"),
 	  actionButton("go", "GO"),
 	  width=2
