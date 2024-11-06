@@ -1,7 +1,7 @@
 # sorghumHM
-Shiny app for searching a gene in another genome and performing comparisons 
+Shiny app for searching a BTX623 gene in another sorghum genome and performing comparisons 
 
-To run: 
+To run (for example purposes only on Sobic.001G000100): 
 ```
 if (!require('shiny'))
 {
